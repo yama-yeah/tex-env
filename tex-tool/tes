@@ -1,0 +1,45 @@
+# \\======//  ||=======//     =======\\
+#     ||      ||             ==
+#     ||      ||              ===
+#     ||      ||====||             ===
+#     ||      ||                    ===
+#     ==      ||=======\\     \\=====  
+TARGET="$1"
+OPTION="$2"
+TEMPLATE="template"
+HELP='
+Usage: tes [-h] [-t template] [report]
+'
+COW='
+    //========================\\
+   //     This Command is      \\
+  //   Tex Environment Helper   \\
+  \\    for Fun Students!!!     //
+   \\  OPEN SPACE, OPEN MIND   //
+    \\========================//
+        \\   ^__^
+         \\  (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||
+'
+if [ -z $TARGET ];then
+  echo "$COW"
+  echo "    $HELP"
+elif [ $TARGET == "-h" ];then
+  echo $HELP
+elif [ $TARGET == "-t" ];then
+  cp -r "$(cd $(dirname $0); pwd)/$TEMPLATE" $TEMPLATE
+  chmod -R 755 $TEMPLATE
+  echo created template folder!
+elif [ -d $TEMPLATE -a $OPTION != "-nt" ];then
+  cp -r $TEMPLATE $TARGET
+  chmod -R 755 $TARGET
+  echo found template folder!
+  echo created $TARGET from your template!
+else
+  cp -r "$(cd $(dirname $0); pwd)/$TEMPLATE" $TARGET
+  chmod -R 755 $TARGET
+  echo created tex folder $TARGET
+fi
+exit 0

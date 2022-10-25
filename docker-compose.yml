@@ -1,30 +1,9 @@
 services:
-  linter:
-    build:
-      context: .
-      dockerfile: ./Docker/node/dockerfile
-    container_name: linter
-    working_dir: /work
+  tex:
+    build: .
+    container_name: tex
+    working_dir: /root/work
     volumes:
-      - .:/work
-      - /work/node_modules
+      - ./work:/root/work
+      - ./tex-tool:/tex-tool
     tty: true
-    command: npm run lint
-
-  pdf:
-    image: t4t5u0/lualatex:1
-    container_name: pdf
-    working_dir: /work
-    volumes:
-      - ./writing_space/:/work
-    tty: true
-    command: latexmk
-
-  clean:
-    image: t4t5u0/lualatex:1
-    container_name: clean
-    working_dir: /work
-    volumes:
-      - ./writing_space/:/work
-    tty: true
-    command: latexmk -c

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "textlint writing_space/*/*.tex",
-    "fix": "textlint --fix writing_space/*/*.tex",
-    "lint-style": "textlint -f checkstyle writing_space/*/*.tex"
+    "lint": "textlint *",
+    "fix": "textlint --fix *",
+    "lint-style": "textlint -f checkstyle *"
   },
   "repository": {
     "type": "git",
