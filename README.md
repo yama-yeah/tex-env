@@ -9,9 +9,10 @@ docker、およびdocker-composeがインストールされているのを前提
 ```bash
 docker-compose up
 ```
-で環境を立ち上げたらVscodeにアタッチしてください。
+で環境を立ち上げたらVScodeにアタッチしてください。
 ## tesコマンド
 ```
+$ tes
 
     //========================\\
    //     This Command is      \\
