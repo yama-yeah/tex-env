@@ -1,42 +1,60 @@
-# latex2e-textlint-sample
+# Tex-Env
+## 概要
+texを使いやすくすることを目的とした環境です。  
+この環境では講義ごとに最適なテンプレートを利用して、レポートを執筆していくのを目標としています。
 
-[![Actions Status: Linter](https://github.com/t4t5u0/late2e-textlint-sample/workflows/Linter/badge.svg)](https://github.com/t4t5u0/late2e-textlint-sample/actions?query=workflow%3A"Linter")
-[![Actions Status: PDF](https://github.com/t4t5u0/late2e-textlint-sample/workflows/PDF/badge.svg)](https://github.com/t4t5u0/late2e-textlint-sample/actions?query=workflow%3A"PDF")
-
-LaTeX2eに対して、TextLintを行いたいです．
-
-`writing_space` 内に，TeXファイルなどを配置してください．  
-手元でPDFを作成する際は以下のよう，`writing_space`内でPDFを作成してください．
-
-解説記事です．[[初心者向け] LaTeX文書をいい感じに運用する方法](https://zenn.dev/t4t5u0/articles/latexoperation)
-
-```sh
-cd writing_space
-latexmk
+## 前提
+docker、およびdocker-composeがインストールされているのを前提条件としています。
+## 入り方
+```bash
+docker-compose up
+```
+で環境を立ち上げたらVscodeにアタッチしてください。
+## tesコマンド
 ```
 
-## ローカルでの動作
+    //========================\\
+   //     This Command is      \\
+  //   Tex Environment Helper   \\
+  \\    for Fun Students!!!     //
+   \\  OPEN SPACE, OPEN MIND   //
+    \\========================//
+        \\   ^__^
+         \\  (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||
 
-### pdfを出力する
-
-```sh
-docker compose up pdf
 ```
-
-### linterを適用する
-
-```sh
-docker compose up linter
+tesコマンドはtexテンプレートの管理コマンドです。  
+```bash
+tes -t
 ```
-
-## GitHub上での動作
-
-### pdfを出力する．
-
-Tagが付与された場合，mainブランチにPushまたは，mainブランチにMergeされた場合，TeXのビルドが行われます．  
-特に，`v`から始まるTagが付与された場合は，Releaseにタグ名が付与されたPDFを自動でアップロードします．
-
-### linterを適用する
-
-TeXファイルを変更した後にPull Requestを作成すると，[reviewdog](https://github.com/reviewdog/reviewdog)により，Reviewが行われます．  
-これは，ローカルでTextlintを適用したときと同じ動作をします．
+でコマンド実行時のカレントディレクトリで利用できるテンプレートを生成します。
+```bash
+tes report-name
+```
+でレポート名をフォルダー名としてもつレポートを生成します。  
+カレントディレクトリにテンプレートがない場合、デフォルトのテンプレートを利用します。
+```bash
+tes -h
+```
+でヘルプを参照できます
+## texをpdfに起こす
+texを編集したあとに保存すると自動でpdfが生成されます。
+## lint
+```bash
+npm run lint
+```
+でlintが走ってあなたのレポートが本当に提出できるできなのかを教えてくれます。
+## デフォルトのテンプレートを編集する
+tex-tool/templateにデフォルトのテンプレートが配置されています。
+## tesコマンドを環境外から呼び出す
+tesコマンドはただのシェルスクリプトなのでdockerを使わなくても使えます。
+```bash
+git clone https://github.com/yama-yeah/tex-env
+cd tex-env
+export PATH="$PATH":"`pwd`/tex-tool"
+```
+以上のコマンドを実行すると、パスが通ります。  
+ただし、latexmkとlualatexをインストールするのを忘れないでください。
