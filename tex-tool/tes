@@ -32,7 +32,7 @@ elif [ $TARGET == "-t" ];then
   cp -r "$(cd $(dirname $0); pwd)/$TEMPLATE" $TEMPLATE
   chmod -R 755 $TEMPLATE
   echo created template folder!
-elif [ -d $TEMPLATE -a $OPTION != "-nt" ];then
+elif [ -d $TEMPLATE ] && [ "$OPTION" != "nt" ]; then
   cp -r $TEMPLATE $TARGET
   chmod -R 755 $TARGET
   echo found template folder!
