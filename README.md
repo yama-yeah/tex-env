@@ -3,6 +3,8 @@
 [![Actions Status: Linter](https://github.com/t4t5u0/late2e-textlint-sample/workflows/Linter/badge.svg)](https://github.com/t4t5u0/late2e-textlint-sample/actions?query=workflow%3A"Linter")
 [![Actions Status: PDF](https://github.com/t4t5u0/late2e-textlint-sample/workflows/PDF/badge.svg)](https://github.com/t4t5u0/late2e-textlint-sample/actions?query=workflow%3A"PDF")
 
+mainブランチはたつお先輩の環境でmasterが俺がいじった環境です．
+
 LaTeX2eに対して、TextLintを行いたいです．
 
 `writing_space` 内に，TeXファイルなどを配置してください．  
