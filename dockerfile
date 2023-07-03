@@ -24,7 +24,7 @@ RUN npm install -g textlint \
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* &&\
-    apt-get install python3 -y
+    apt-get install python3 git -y
 ENV PATH $PATH:/tex-tool/
 RUN apt-get update \
     && apt-get install -y locales \
